@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">Dietify</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">BiakaDiet</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip">Skip …</string>
+    <string name="next">Next</string>
+    <string name="decision_on_what_you_eat">We help you make the most informed decision about your what you eat!</string>
+    <string name="welcome_to_biakadiet">Welcome to BIAKADIET</string>
+    <string name="already_have_an_account_sign_in">Already have an Account? SIGN IN</string>
+    <string name="sign_up_with_email">SIGN UP WITH EMAIL</string>
+    <string name="email_address">Email Address</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in_fragment_background">Sign in Fragment Background</string>
+    <string name="password">password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="i_agree_with_the_terms_and_policy">I agree with the terms and policy</string>
 </resources>
