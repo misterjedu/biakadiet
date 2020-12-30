@@ -71,21 +71,16 @@ class OnBoardingContainer : Fragment() {
 
         skip.setOnClickListener {
             val intent = Intent(requireActivity(), AuthActivity::class.java)
-            startActivity(
-                intent
-            )
+            startActivity(intent)
         }
 
         nextButton.setOnClickListener {
-            var viewPagerCurrentPosition: Int = viewPager.currentItem
+            val viewPagerCurrentPosition: Int = viewPager.currentItem
             if (viewPagerCurrentPosition < 2) {
-                viewPagerCurrentPosition++
-                viewPager.currentItem = viewPagerCurrentPosition
+                viewPager.currentItem = viewPagerCurrentPosition + 1
             } else {
                 val intent = Intent(requireActivity(), AuthActivity::class.java)
-                startActivity(
-                    intent
-                )
+                startActivity(intent)
             }
         }
     }

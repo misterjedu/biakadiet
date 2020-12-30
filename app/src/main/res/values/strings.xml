@@ -10,8 +10,11 @@
     <string name="email_address">Email Address</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_in_fragment_background">Sign in Fragment Background</string>
-    <string name="password">password</string>
+    <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="retype_password">Retype Password</string>
-    <string name="i_agree_with_the_terms_and_policy">I agree with the terms and policy</string>
+    <string name="agree_to_terms_and_policy">I agree to the terms and policy</string>
+    <string name="or_sign_in_with">------ OR SIGN IN WITH ------</string>
+    <string name="or_sign_up_with">------ OR SIGN UP WITH ------</string>
+    <string name="forgot_your_password">Forgot your password? Restore</string>
 </resources>

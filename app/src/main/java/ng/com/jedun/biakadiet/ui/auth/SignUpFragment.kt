@@ -8,69 +8,66 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 import ng.com.jedun.biakadiet.R
-import ng.com.jedun.biakadiet.databinding.FragmentSignInBinding
+import ng.com.jedun.biakadiet.databinding.FragmentSignUpBinding
 import ng.com.jedun.biakadiet.util.*
 
 
-class SignInFragment : Fragment() {
+class SignUpFragment : Fragment() {
 
-    private var _binding: FragmentSignInBinding? = null
+    private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
-    private lateinit var forgotPassword: TextView
-    private lateinit var emailTil: TextInputLayout
+    private lateinit var signUpButton: Button
+    private lateinit var termsAndPrivacy: TextView
     private lateinit var emailEt: EditText
+    private lateinit var emailTil: TextInputLayout
     private lateinit var passWordTil: TextInputLayout
     private lateinit var passwordEt: EditText
-    private lateinit var signInButton: Button
+    private lateinit var reTypePasswordTIl: TextInputLayout
+    private lateinit var reTypePasswordEt: EditText
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSignInBinding.inflate(inflater, container, false)
-        setHasOptionsMenu(true)
-        // Inflate the layout for this fragment
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        forgotPassword = binding.frSignInForgotPasswordTv
-        emailEt = binding.frSignInEmailEt
-        passwordEt = binding.frSignInPasswordEt
-        emailTil = binding.frSignInEmailTil
-        passWordTil = binding.frSignInPasswordTil
-        signInButton = binding.frSignInSignInButton
+        signUpButton = binding.frSignUpSignUpButton
+        termsAndPrivacy = binding.frSignInTermsAndPrivacyTv
+        emailEt = binding.frSignUpEmailEt
+        passwordEt = binding.frSignUpPasswordEt
+        reTypePasswordEt = binding.frSignUpReEnterPasswordEt
+        emailTil = binding.frSignUpEmailTil
+        passWordTil = binding.frSignUpPasswordTil
+        reTypePasswordTIl = binding.frSignUpReEnterPasswordTil
 
         SpannableHelper.spannable(
-            forgotPassword,
-            22,
-            forgotPassword.text.length,
+            termsAndPrivacy,
+            15,
+            termsAndPrivacy.text.length,
             resources.getColor(R.color.color_primary),
             false
-        ) { sayHello() }
+        ) {
+            run {
+                requireActivity().makeToast("Hello from Sign Up Fragment")
+            }
+        }
+
 
         validateFields()
+
     }
 
-    private fun sayHello() {
-        Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show()
-    }
 
-    /** Validate form fields **/
     private fun validateFields() {
-
         val fields: MutableList<JDataClass> = mutableListOf(
             JDataClass(
                 editText = emailEt,
@@ -83,13 +80,19 @@ class SignInFragment : Fragment() {
                 editTextInputLayout = passWordTil,
                 errorMessage = JDErrorConstants.INVALID_PASSWORD_ERROR,
                 validator = { it.jdValidatePassword(it.text.toString()) }
+            ),
+            JDataClass(
+                editText = reTypePasswordEt,
+                editTextInputLayout = reTypePasswordTIl,
+                errorMessage = JDErrorConstants.PASSWORD_DOES_NOT_MATCH,
+                validator = { it.jdValidateConfirmPassword(passwordEt, reTypePasswordEt) }
             )
         )
 
         JDFormValidator.Builder()
             .addFieldsToValidate(fields)
             .removeErrorIcon(true)
-            .viewsToEnable(mutableListOf(signInButton))
+            .viewsToEnable(mutableListOf(signUpButton))
             .watchWhileTyping(true)
             .build()
     }
@@ -97,7 +100,7 @@ class SignInFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+
         _binding = null
     }
-
 }

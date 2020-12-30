@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.SignInFragment">
+    tools:context=".ui.auth.SignUpFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -32,20 +32,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="@dimen/default_margin"
+                android:enabled="true"
                 android:text="@string/sign_in"
                 android:textColor="@color/color_primary"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fr_sign_in_email_til"
+                android:id="@+id/fr_sign_up_email_til"
                 style="@style/CustomTextInputFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/email_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fr_sign_in_email_et"
+                    android:id="@+id/fr_sign_up_email_et"
                     style="@style/CustomTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fr_sign_in_password_til"
+                android:id="@+id/fr_sign_up_password_til"
                 style="@style/CustomTextInputFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 app:startIconDrawable="@drawable/password">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fr_sign_in_password_et"
+                    android:id="@+id/fr_sign_up_password_et"
                     style="@style/CustomTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,8 +77,27 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fr_sign_up_re_enter_password_til"
+                style="@style/CustomTextInputFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fr_sign_up_re_enter_password_et"
+                    style="@style/CustomTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="@string/retype_password"
+                    android:hint="@string/retype_password"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
-                android:id="@+id/fr_sign_in_sign_in_button"
+                android:id="@+id/fr_sign_up_sign_up_button"
                 style="@style/DefaultButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,24 +105,24 @@
                 android:layout_marginTop="@dimen/default_margin"
                 android:layout_marginBottom="@dimen/default_margin"
                 android:enabled="false"
-                android:text="@string/sign_in"
+                android:text="@string/sign_up"
                 app:cornerRadius="30dp" />
 
             <TextView
-                android:id="@+id/fr_sign_in_forgot_password_tv"
+                android:id="@+id/fr_sign_in_terms_and_privacy_tv"
                 style="@style/DefaultText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/forgot_your_password"
+                android:text="@string/agree_to_terms_and_policy"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/fr_auth_landing_or_tv"
+                android:id="@+id/fr_sign_up_with_tv"
                 style="@style/TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="@string/or_sign_in_with"
+                android:text="@string/or_sign_up_with"
                 android:textAlignment="center"
                 android:textStyle="bold" />
 
@@ -114,18 +133,18 @@
                 android:padding="@dimen/default_margin">
 
                 <ImageView
-                    android:id="@+id/fr_sign_in_facebook_icon"
+                    android:id="@+id/fr_sign_up_facebook_icon"
                     style="@style/RoundIconBackground"
                     android:layout_margin="3dp"
                     android:src="@drawable/facebook"
-                    app:layout_constraintBottom_toBottomOf="@+id/fr_sign_in_google_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/fr_sign_up_google_icon"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.24"
-                    app:layout_constraintStart_toEndOf="@+id/fr_sign_in_google_icon"
-                    app:layout_constraintTop_toTopOf="@+id/fr_sign_in_google_icon" />
+                    app:layout_constraintStart_toEndOf="@+id/fr_sign_up_google_icon"
+                    app:layout_constraintTop_toTopOf="@+id/fr_sign_up_google_icon" />
 
                 <ImageView
-                    android:id="@+id/fr_sign_in_google_icon"
+                    android:id="@+id/fr_sign_up_google_icon"
                     style="@style/RoundIconBackground"
                     android:layout_margin="3dp"
                     android:src="@drawable/google"
@@ -137,5 +156,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+
 
 </FrameLayout>

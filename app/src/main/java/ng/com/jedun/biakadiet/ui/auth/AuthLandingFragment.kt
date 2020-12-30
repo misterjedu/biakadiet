@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ng.com.jedun.biakadiet.R
@@ -19,20 +18,14 @@ class AuthLandingFragment : Fragment() {
 
     private var _binding: FragmentAuthLandingBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var alreadyHaveAnAccountTextView: TextView
     private lateinit var signUpButton: Button
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentAuthLandingBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -53,19 +46,26 @@ class AuthLandingFragment : Fragment() {
         ) { openSignUpFragment() }
 
 
-
         signUpButton.setOnClickListener {
-//            findNavController().navigate(R.id.signInFragment, null, customNavAnimation().build())
-            findNavController().navigate(R.id.signInFragment, )
+            findNavController().navigate(
+                R.id.signUpFragment,
+                null,
+                customNavAnimation().build()
+            )
         }
     }
 
     private fun openSignUpFragment() {
-        Toast.makeText(requireActivity(), "Next fragment opens", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(
+            R.id.signInFragment,
+            null,
+            customNavAnimation().build()
+        )
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+    override fun onStop() {
+        super.onStop()
+        requireActivity().actionBar?.show()
     }
+
 }

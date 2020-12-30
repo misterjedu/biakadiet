@@ -23,7 +23,6 @@
 
     <!--  Buttons  -->
     <style name="DefaultButton" parent="Theme.BiakaDiet">
-        <item name="android:backgroundTint">@color/color_primary</item>
         <item name="android:paddingTop">@dimen/default_vertical_button_padding</item>
         <item name="android:paddingBottom">@dimen/default_vertical_button_padding</item>
         <item name="android:paddingLeft">@dimen/default_horizontal_button_padding</item>
@@ -59,9 +58,9 @@
     <style name="RoundIconBackground" parent="Theme.BiakaDiet">
         <item name="android:background">@drawable/round_image_background</item>
         <item name="android:elevation">3dp</item>
-        <item name="android:layout_width">70dp</item>
-        <item name="android:layout_height">70dp</item>
-        <item name="android:padding">15dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">10dp</item>
     </style>
 
 </resources>
