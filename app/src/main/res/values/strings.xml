@@ -16,5 +16,5 @@
     <string name="agree_to_terms_and_policy">I agree to the terms and policy</string>
     <string name="or_sign_in_with">------ OR SIGN IN WITH ------</string>
     <string name="or_sign_up_with">------ OR SIGN UP WITH ------</string>
-    <string name="forgot_your_password">Forgot your password? Restore</string>
+    <string name="forgot_your_password">Forgot password? </string>
 </resources>

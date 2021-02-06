@@ -8,18 +8,23 @@
     <fragment
         android:id="@+id/authLandingFragment"
         android:name="ng.com.jedun.biakadiet.ui.auth.AuthLandingFragment"
-        android:label="fragment_auth_landing"
-        tools:layout="@layout/fragment_auth_landing"/>
+        android:label=" "
+        tools:layout="@layout/fragment_auth_landing" />
     <fragment
         android:id="@+id/signInFragment"
         android:name="ng.com.jedun.biakadiet.ui.auth.SignInFragment"
-        android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in" >
+        android:label=" "
+        tools:layout="@layout/fragment_sign_in">
 
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="ng.com.jedun.biakadiet.ui.auth.SignUpFragment"
-        android:label="fragment_sign_up"
+        android:label=" "
         tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="ng.com.jedun.biakadiet.ui.auth.ForgotPassword"
+        android:label=" "
+        tools:layout="@layout/fragment_forgot_password" />
 </navigation>

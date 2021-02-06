@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentSignInBinding
@@ -26,11 +26,11 @@ class SignInFragment : Fragment() {
     private lateinit var passwordEt: EditText
     private lateinit var signInButton: Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setHasOptionsMenu(true)
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,26 +46,31 @@ class SignInFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        forgotPassword = binding.frSignInForgotPasswordTv
+        forgotPassword = binding.forgotPasswordTv
         emailEt = binding.frSignInEmailEt
         passwordEt = binding.frSignInPasswordEt
         emailTil = binding.frSignInEmailTil
         passWordTil = binding.frSignInPasswordTil
-        signInButton = binding.frSignInSignInButton
+        signInButton = binding.signInButton
 
         SpannableHelper.spannable(
             forgotPassword,
-            22,
+            0,
             forgotPassword.text.length,
             resources.getColor(R.color.color_primary),
             false
-        ) { sayHello() }
+        ) { gotoForgotPassword() }
 
         validateFields()
     }
 
-    private fun sayHello() {
-        Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show()
+
+    private fun gotoForgotPassword() {
+        findNavController().navigate(
+            R.id.forgotPassword,
+            null,
+            customNavAnimation().build()
+        )
     }
 
     /** Validate form fields **/

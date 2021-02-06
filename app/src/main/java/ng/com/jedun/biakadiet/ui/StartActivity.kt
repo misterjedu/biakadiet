@@ -1,13 +1,13 @@
-package ng.com.jedun.biakadiet
+package ng.com.jedun.biakadiet.ui
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import ng.com.jedun.biakadiet.databinding.ActivityStartBinding
-import ng.com.jedun.biakadiet.ui.BaseActivity
-import ng.com.jedun.biakadiet.ui.WelcomeActivity
+import ng.com.jedun.biakadiet.ui.auth.AuthActivity
 
-class StartActivity : BaseActivity() {
+class StartActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStartBinding
 
@@ -15,7 +15,9 @@ class StartActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityStartBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
+
     }
 
     override fun onStart() {
@@ -24,12 +26,11 @@ class StartActivity : BaseActivity() {
         GlobalScope.launch {
             delay(1000L)
             withContext(Dispatchers.Main) {
-                val intent = Intent(this@StartActivity, WelcomeActivity::class.java)
+                val intent = Intent(this@StartActivity, AuthActivity::class.java)
                 startActivity(
                     intent
                 )
             }
-
             finish()
         }
     }

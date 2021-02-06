@@ -18,7 +18,7 @@ class SignUpFragment : Fragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
-    private lateinit var signUpButton: Button
+    private lateinit var registerButton: Button
     private lateinit var termsAndPrivacy: TextView
     private lateinit var emailEt: EditText
     private lateinit var emailTil: TextInputLayout
@@ -26,6 +26,12 @@ class SignUpFragment : Fragment() {
     private lateinit var passwordEt: EditText
     private lateinit var reTypePasswordTIl: TextInputLayout
     private lateinit var reTypePasswordEt: EditText
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
 
 
     override fun onCreateView(
@@ -40,18 +46,18 @@ class SignUpFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        signUpButton = binding.frSignUpSignUpButton
-        termsAndPrivacy = binding.frSignInTermsAndPrivacyTv
-        emailEt = binding.frSignUpEmailEt
-        passwordEt = binding.frSignUpPasswordEt
-        reTypePasswordEt = binding.frSignUpReEnterPasswordEt
-        emailTil = binding.frSignUpEmailTil
-        passWordTil = binding.frSignUpPasswordTil
-        reTypePasswordTIl = binding.frSignUpReEnterPasswordTil
+        registerButton = binding.registerButton
+        termsAndPrivacy = binding.termsAndPrivaccy
+        emailEt = binding.emailEt
+        passwordEt = binding.passwordEt
+        reTypePasswordEt = binding.retypePasswordEt
+        emailTil = binding.emailTil
+        passWordTil = binding.passwordTil
+        reTypePasswordTIl = binding.retypePasswordTil
 
         SpannableHelper.spannable(
             termsAndPrivacy,
-            15,
+            16,
             termsAndPrivacy.text.length,
             resources.getColor(R.color.color_primary),
             false
@@ -60,7 +66,6 @@ class SignUpFragment : Fragment() {
                 requireActivity().makeToast("Hello from Sign Up Fragment")
             }
         }
-
 
         validateFields()
 
@@ -92,7 +97,7 @@ class SignUpFragment : Fragment() {
         JDFormValidator.Builder()
             .addFieldsToValidate(fields)
             .removeErrorIcon(true)
-            .viewsToEnable(mutableListOf(signUpButton))
+            .viewsToEnable(mutableListOf(registerButton))
             .watchWhileTyping(true)
             .build()
     }

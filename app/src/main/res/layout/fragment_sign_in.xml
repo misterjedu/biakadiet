@@ -12,7 +12,7 @@
         android:alpha="0.1"
         android:contentDescription="@string/sign_in_fragment_background"
         android:scaleType="fitCenter"
-        android:src="@drawable/image_1"
+        android:src="@drawable/logo"
         android:visibility="visible" />
 
     <androidx.core.widget.NestedScrollView
@@ -23,30 +23,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:gravity="fill_vertical"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/fr_sign_in_tile_tv"
-                style="@style/HeaderText"
+            <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:src="@drawable/person_icon" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/default_margin"
-                android:text="@string/sign_in"
-                android:textColor="@color/color_primary"
-                android:textStyle="bold" />
+                android:text="@string/sign_in" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fr_sign_in_email_til"
-                style="@style/CustomTextInputFieldStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/email_icon">
+                android:layout_marginVertical="@dimen/default_margin"
+                app:startIconDrawable="@drawable/email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fr_sign_in_email_et"
-                    style="@style/CustomTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="@string/email_address"
@@ -58,15 +66,15 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fr_sign_in_password_til"
-                style="@style/CustomTextInputFieldStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/default_margin"
                 app:endIconMode="password_toggle"
-                app:startIconDrawable="@drawable/password">
+                app:startIconDrawable="@drawable/key">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fr_sign_in_password_et"
-                    style="@style/CustomTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="@string/password"
@@ -76,65 +84,90 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/forgot_password_tv"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:text="@string/forgot_your_password" />
 
             <Button
-                android:id="@+id/fr_sign_in_sign_in_button"
+                android:id="@+id/sign_in_button"
                 style="@style/DefaultButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/default_margin"
-                android:layout_marginTop="@dimen/default_margin"
-                android:layout_marginBottom="@dimen/default_margin"
-                android:enabled="false"
-                android:text="@string/sign_in"
-                app:cornerRadius="30dp" />
+                android:layout_marginBottom="@dimen/default_bottom_to_parent_margin"
+                android:text="@string/sign_in" />
 
-            <TextView
-                android:id="@+id/fr_sign_in_forgot_password_tv"
-                style="@style/DefaultText"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/forgot_your_password"
-                android:textAlignment="center" />
+                android:layout_marginBottom="@dimen/default_bottom_to_parent_margin"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/fr_auth_landing_or_tv"
-                style="@style/TitleText"
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/dark_tag_background" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login with Social" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/dark_tag_background"
+                    android:foregroundGravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/or_sign_in_with"
-                android:textAlignment="center"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_margin"
-                android:padding="@dimen/default_margin">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button5"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/facebook_icon"
+                    android:paddingVertical="20dp"
+                    android:text="Facebook"
+                    android:textAllCaps="false"
+                    android:textColor="#1F3F77"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="#1F3F77" />
 
-                <ImageView
-                    android:id="@+id/fr_sign_in_facebook_icon"
-                    style="@style/RoundIconBackground"
-                    android:layout_margin="3dp"
-                    android:src="@drawable/facebook"
-                    app:layout_constraintBottom_toBottomOf="@+id/fr_sign_in_google_icon"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.24"
-                    app:layout_constraintStart_toEndOf="@+id/fr_sign_in_google_icon"
-                    app:layout_constraintTop_toTopOf="@+id/fr_sign_in_google_icon" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button4"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/google_icon"
+                    android:paddingVertical="20dp"
+                    android:text="Google"
+                    android:textAllCaps="false"
+                    android:textColor="#F03800"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="#F03800" />
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/fr_sign_in_google_icon"
-                    style="@style/RoundIconBackground"
-                    android:layout_margin="3dp"
-                    android:src="@drawable/google"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.35"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
