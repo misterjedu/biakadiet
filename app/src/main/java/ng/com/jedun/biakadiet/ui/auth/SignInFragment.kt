@@ -12,10 +12,11 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentSignInBinding
+import ng.com.jedun.biakadiet.ui.BaseFragment
 import ng.com.jedun.biakadiet.util.*
 
 
-class SignInFragment : Fragment() {
+class SignInFragment : BaseFragment() {
 
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
@@ -38,6 +39,7 @@ class SignInFragment : Fragment() {
     ): View? {
 
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
+
         setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         return binding.root

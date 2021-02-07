@@ -9,9 +9,10 @@ import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout
 import ng.com.jedun.biakadiet.databinding.FragmentForgotPasswordBinding
+import ng.com.jedun.biakadiet.ui.BaseFragment
 import ng.com.jedun.biakadiet.util.*
 
-class ForgotPassword : Fragment() {
+class ForgotPassword : BaseFragment() {
 
     private var _binding: FragmentForgotPasswordBinding? = null
     private val binding get() = _binding!!

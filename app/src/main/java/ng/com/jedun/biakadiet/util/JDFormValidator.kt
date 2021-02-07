@@ -3,7 +3,6 @@ package ng.com.jedun.biakadiet.util
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
 import com.google.android.material.textfield.TextInputLayout
 
 class JDFormValidator(builder: Builder) {

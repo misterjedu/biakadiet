@@ -13,13 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiakaDiet">
-
+        <activity android:name=".ui.onboarding.OnBoardingActivity"></activity>
         <activity
             android:name=".ui.auth.AuthActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
@@ -30,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"

@@ -11,10 +11,11 @@ import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
 import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentSignUpBinding
+import ng.com.jedun.biakadiet.ui.BaseFragment
 import ng.com.jedun.biakadiet.util.*
 
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : BaseFragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
