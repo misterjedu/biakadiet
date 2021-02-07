@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/authLandingFragment"
         android:name="ng.com.jedun.biakadiet.ui.auth.AuthLandingFragment"
-        android:label=" "
+        android:label="   "
         tools:layout="@layout/fragment_auth_landing" />
     <fragment
         android:id="@+id/signInFragment"

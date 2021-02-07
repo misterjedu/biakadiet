@@ -69,7 +69,7 @@ class SignInFragment : Fragment() {
         findNavController().navigate(
             R.id.forgotPassword,
             null,
-            customNavAnimation().build()
+            customFragmentAnimation().build()
         )
     }
 

@@ -17,4 +17,5 @@
     <string name="or_sign_in_with">------ OR SIGN IN WITH ------</string>
     <string name="or_sign_up_with">------ OR SIGN UP WITH ------</string>
     <string name="forgot_your_password">Forgot password? </string>
+    <string name="lorem_ipsium">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</string>
 </resources>

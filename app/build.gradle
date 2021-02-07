@@ -52,7 +52,7 @@ android {
         implementation 'androidx.legacy:legacy-support-v4:1.0.0'
         implementation 'androidx.viewpager2:viewpager2:1.0.0'
         testImplementation 'junit:junit:4.13.1'
-        
+
 
         //navigation controller
         implementation "androidx.navigation:navigation-fragment-ktx:$versions.nav_version"
@@ -129,6 +129,7 @@ android {
         kapt "androidx.room:room-compiler:$room_version"
         implementation "androidx.room:room-ktx:$room_version"
         androidTestImplementation "androidx.room:room-testing:$room_version"
+        
     }
 }
 

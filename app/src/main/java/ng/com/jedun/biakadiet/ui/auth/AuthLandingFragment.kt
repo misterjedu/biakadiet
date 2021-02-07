@@ -1,16 +1,21 @@
 package ng.com.jedun.biakadiet.ui.auth
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayoutMediator
 import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentAuthLandingBinding
+import ng.com.jedun.biakadiet.util.DataUtil
 import ng.com.jedun.biakadiet.util.ZoomOutPageTransformer
-import ng.com.jedun.biakadiet.util.customNavAnimation
+import ng.com.jedun.biakadiet.util.autoScroll
+import ng.com.jedun.biakadiet.util.customFragmentAnimation
 
 class AuthLandingFragment : Fragment() {
 
@@ -34,16 +39,15 @@ class AuthLandingFragment : Fragment() {
             findNavController().navigate(
                 R.id.signUpFragment,
                 null,
-                customNavAnimation().build()
+                customFragmentAnimation().build()
             )
         }
-
 
         binding.signInTv.setOnClickListener {
             findNavController().navigate(
                 R.id.signInFragment,
                 null,
-                customNavAnimation().build()
+                customFragmentAnimation().build()
             )
         }
     }
@@ -51,8 +55,21 @@ class AuthLandingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val viewPagerData: Pair<List<Int>, List<String>> =
+            Pair(DataUtil.onBoardingImages(), DataUtil.onBoardingDescriptions(this))
+
+        val adapter = AuthViewPagerAdapter(viewPagerData)
+
         viewPager = binding.fragmentOnboardingVp
+
+        viewPager.adapter = adapter
+
         viewPager.setPageTransformer(ZoomOutPageTransformer())
+
+        TabLayoutMediator(binding.intoTabLayout, binding.fragmentOnboardingVp)
+        { tab, position -> }.attach()
+
+        binding.fragmentOnboardingVp.autoScroll(3000)
 
     }
 
