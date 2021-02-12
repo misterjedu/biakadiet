@@ -1,5 +1,6 @@
 package ng.com.jedun.biakadiet.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,8 @@ import com.google.android.material.textfield.TextInputLayout
 import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentSignUpBinding
 import ng.com.jedun.biakadiet.ui.BaseFragment
+import ng.com.jedun.biakadiet.ui.onboarding.OnBoardingActivity
+import ng.com.jedun.biakadiet.ui.onboarding.OnBoardingTwo
 import ng.com.jedun.biakadiet.util.*
 
 
@@ -32,7 +35,6 @@ class SignUpFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
-
 
 
     override fun onCreateView(
@@ -69,6 +71,13 @@ class SignUpFragment : BaseFragment() {
         }
 
         validateFields()
+
+        binding.registerButton.setOnClickListener {
+            val intent = Intent(activity, OnBoardingActivity::class.java)
+            startActivity(
+                intent
+            )
+        }
 
     }
 

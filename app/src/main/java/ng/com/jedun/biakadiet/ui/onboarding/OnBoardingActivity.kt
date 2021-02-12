@@ -21,7 +21,7 @@ class OnBoardingActivity : BaseActivity() {
         binding = ActivityOnbaordingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navController = Navigation.findNavController(this, R.id.activity_auth_nav_fragment)
+        navController = Navigation.findNavController(this, R.id.activity_onBoarding_nav_fragment)
 
         appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
 

@@ -1,13 +1,10 @@
 package ng.com.jedun.biakadiet.ui.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentOnboardingOneBinding
-import ng.com.jedun.biakadiet.databinding.FragmentSignInBinding
 import ng.com.jedun.biakadiet.ui.BaseFragment
 
 
@@ -15,6 +12,12 @@ class OnBoardingOne : BaseFragment() {
 
     private var _binding: FragmentOnboardingOneBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +28,6 @@ class OnBoardingOne : BaseFragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
-
 
 
     override fun onDestroy() {
