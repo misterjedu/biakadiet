@@ -2,8 +2,9 @@ package ng.com.jedun.biakadiet.util
 
 import androidx.fragment.app.Fragment
 import ng.com.jedun.biakadiet.R
+import ng.com.jedun.biakadiet.models.DietGoal
 
-object DataUtil {
+object DataCenter {
 
     fun onBoardingDescriptions(fragment: Fragment): List<String> {
         return listOf(
@@ -20,5 +21,15 @@ object DataUtil {
             R.drawable.onboarding_image_three
         )
 
+    }
+
+    @JvmStatic
+    fun dietGoals(): List<DietGoal> {
+        return mutableListOf(
+            DietGoal("Weight Loss"),
+            DietGoal("Weight Gain"),
+            DietGoal("Muscle Gain"),
+            DietGoal("Abs Gain")
+        )
     }
 }

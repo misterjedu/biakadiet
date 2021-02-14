@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/onboarding_nav"
-    android:label="Step 1 of 5"
+    android:label=" "
     app:startDestination="@id/onBoardingOne">
 
     <fragment
@@ -11,4 +11,9 @@
         android:name="ng.com.jedun.biakadiet.ui.onboarding.OnBoardingOne"
         android:label=" "
         tools:layout="@layout/fragment_onboarding_one" />
+    <fragment
+        android:id="@+id/onBoardingTwo"
+        android:name="ng.com.jedun.biakadiet.ui.onboarding.OnBoardingTwo"
+        android:label=" "
+        tools:layout="@layout/fragment_on_boarding_two" />
 </navigation>

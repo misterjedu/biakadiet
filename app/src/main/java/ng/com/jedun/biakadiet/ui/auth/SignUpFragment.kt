@@ -2,7 +2,6 @@ package ng.com.jedun.biakadiet.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentSignUpBinding
 import ng.com.jedun.biakadiet.ui.BaseFragment
 import ng.com.jedun.biakadiet.ui.onboarding.OnBoardingActivity
-import ng.com.jedun.biakadiet.ui.onboarding.OnBoardingTwo
 import ng.com.jedun.biakadiet.util.*
 
 
@@ -66,7 +64,7 @@ class SignUpFragment : BaseFragment() {
             false
         ) {
             run {
-                requireActivity().makeToast("Hello from Sign Up Fragment")
+                requireActivity().toast("Hello from Sign Up Fragment")
             }
         }
 
