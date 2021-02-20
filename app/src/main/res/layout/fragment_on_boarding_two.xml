@@ -39,9 +39,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="1dp"
+            android:layout_marginStart="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
-            android:layout_marginBottom="5dp"
-            android:text="Others (Specify)" />
+            android:layout_marginBottom="10dp"
+            android:text="Others (Specify)"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/other_goals_et"
@@ -50,7 +52,7 @@
             android:layout_marginHorizontal="1dp"
             android:layout_marginBottom="@dimen/default_margin"
             android:hint="Specify Other goals"
-            android:textSize="14sp" />
+            android:paddingStart="@dimen/default_margin" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,9 +60,41 @@
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
             android:layout_marginVertical="@dimen/default_margin"
-            android:background="@color/white"
-            android:elevation="1dp"
+            android:background="@drawable/stroke_background"
             android:padding="@dimen/default_margin">
+
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:layout_marginTop="8dp"
+                android:text="Set your goal"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ng.com.jedun.biakadiet.widgets.FixedMaterialSpinner
+                android:id="@+id/goal_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:elevation="1dp"
+                android:hint="Select a goal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:ms_dropdown_height="wrap_content"
+                app:ms_dropdown_max_height="350dp" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -68,24 +102,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginVertical="@dimen/default_margin"
+                android:layout_marginTop="32dp"
                 android:text="What is your target Weight?"
                 android:textSize="@dimen/header_text"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/goal_spinner" />
 
             <EditText
                 android:id="@+id/target_weight_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textColor="@color/dark_tag_background"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/goal_spinner"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
@@ -100,25 +135,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/target_weight_et" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            style="@style/TitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginVertical="@dimen/default_margin"
-            android:text="Set your goal"
-            android:textSize="@dimen/header_text"
-            android:textStyle="bold" />
-
-        <ng.com.jedun.biakadiet.widgets.FixedMaterialSpinner
-            android:id="@+id/country_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/default_margin"
-            android:hint="Select a goal"
-            app:ms_dropdown_height="wrap_content"
-            app:ms_dropdown_max_height="350dp" />
 
 
         <Button

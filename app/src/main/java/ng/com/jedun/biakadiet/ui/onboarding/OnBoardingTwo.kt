@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.util.keyIterator
+import ng.com.jedun.biakadiet.R
 import ng.com.jedun.biakadiet.databinding.FragmentOnBoardingTwoBinding
 import ng.com.jedun.biakadiet.ui.BaseFragment
 import ng.com.jedun.biakadiet.ui.adapters.DietGoalRecyclerAdapter
 import ng.com.jedun.biakadiet.util.DataCenter
 import ng.com.jedun.biakadiet.util.toast
+import ng.com.jedun.biakadiet.widgets.FixedMaterialSpinner
 
 class OnBoardingTwo : BaseFragment() {
 
     private var _binding: FragmentOnBoardingTwoBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: DietGoalRecyclerAdapter
+    var selectedDietGoal = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +36,30 @@ class OnBoardingTwo : BaseFragment() {
 
         adapter = DietGoalRecyclerAdapter()
         adapter.setDietGoalList(DataCenter.dietGoals())
-        adapter.setClickListener {
-            toast(it.goal)
-        }
-        binding.goalsDietRecyclerView.adapter = adapter
 
+        val goalList =
+            mutableListOf<String>(*resources.getStringArray(R.array.diet_goals))
+
+        val dietGoalSpinner: FixedMaterialSpinner = binding.goalSpinner
+        dietGoalSpinner.setItems(goalList)
+
+        dietGoalSpinner.setOnItemSelectedListener { view, position, id, item ->
+            selectedDietGoal = item as String
+        }
+
+
+        adapter.setClickListener { dietGoal ->
+            val checkedListArr = mutableListOf<String>()
+            adapter.checkBoxStateArray.keyIterator().forEach {
+                if (adapter.checkBoxStateArray.get(it)) {
+                    checkedListArr.add(DataCenter.dietGoals()[it].goal)
+                }
+            }
+
+            println(checkedListArr.toList())
+        }
+
+        binding.goalsDietRecyclerView.adapter = adapter
 
     }
 
